@@ -79,6 +79,11 @@ dependencies {
     implementation(libs.ktor.client.negotiation)
     implementation(libs.ktor.serialization.json)
     implementation(libs.serialization.json)
+    implementation(libs.ktor.serialization.gson)
+
+    // Google Gson
+    implementation(libs.google.gson)
+
 
     // Coroutines
     implementation(libs.coroutines.android)
