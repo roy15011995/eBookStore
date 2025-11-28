@@ -1,4 +1,4 @@
-package com.example.composebookstoreapplication.model
+package com.aroy.ebookstore.model
 
 import kotlinx.serialization.SerialName
 

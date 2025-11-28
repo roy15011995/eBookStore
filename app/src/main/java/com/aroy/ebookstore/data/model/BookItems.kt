@@ -1,5 +1,6 @@
-package com.example.composebookstoreapplication.model
+package com.aroy.ebookstore.model
 
+import com.aroy.ebookstore.model.AccessInfo
 import kotlinx.serialization.SerialName
 
 

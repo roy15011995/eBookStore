@@ -1,24 +1,24 @@
-package com.aroy.ebookstore.data
+package com.aroy.ebookstore.core
 
 import androidx.room.TypeConverter
+import com.aroy.ebookstore.model.AccessInfo
+import com.aroy.ebookstore.model.BookItems
+import com.aroy.ebookstore.model.Epub
+import com.aroy.ebookstore.model.ImageLinks
+import com.aroy.ebookstore.model.IndustryIdentifiers
+import com.aroy.ebookstore.model.PanelizationSummary
+import com.aroy.ebookstore.model.Pdf
+import com.aroy.ebookstore.model.ReadingModes
+import com.aroy.ebookstore.model.SaleInfo
+import com.aroy.ebookstore.model.SearchInfo
+import com.aroy.ebookstore.model.VolumeInfo
 import com.google.gson.Gson
-import com.example.composebookstoreapplication.model.AccessInfo
-import com.example.composebookstoreapplication.model.BookItems
-import com.example.composebookstoreapplication.model.Epub
-import com.example.composebookstoreapplication.model.ImageLinks
-import com.example.composebookstoreapplication.model.IndustryIdentifiers
-import com.example.composebookstoreapplication.model.PanelizationSummary
-import com.example.composebookstoreapplication.model.Pdf
-import com.example.composebookstoreapplication.model.ReadingModes
-import com.example.composebookstoreapplication.model.SaleInfo
-import com.example.composebookstoreapplication.model.SearchInfo
-import com.example.composebookstoreapplication.model.VolumeInfo
 
 /**
  * Created by Amit Roy on Date : 26/11/25
  *
  *
- * Common [TypeConverter] for Room database.
+ * Common [androidx.room.TypeConverter] for Room database.
  *
  * This class provides custom type converters for Room so that complex data types
  * (such as lists and nested objects) can be stored in the database as JSON strings.

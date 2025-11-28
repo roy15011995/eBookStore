@@ -1,7 +1,7 @@
-package com.aroy.ebookstore.network.service
+package com.aroy.ebookstore.core.network.service
 
-import com.aroy.ebookstore.network.APIConfig.BASE_URL
-import com.example.composebookstoreapplication.model.BookResponse
+import com.aroy.ebookstore.core.network.APIConfig
+import com.aroy.ebookstore.model.BookResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -16,8 +16,8 @@ class BooksAPI(private val client: HttpClient) {
         author: String? = null,
         page: Int? = null,
         limit: Int? = null
-    ): BookResponse{
-        return client.get("$BASE_URL/books/v1/volumes") {
+    ): BookResponse {
+        return client.get("${APIConfig.BASE_URL}/books/v1/volumes") {
             parameter("q", query)
             author?.let { parameter("inauthor", it) }
             page?.let { parameter("startIndex", it) }

@@ -74,6 +74,9 @@ dependencies {
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
+    // This is the one that provides hiltViewModel()
+    implementation(libs.hilt.navigation.compose)
+
     // Ktor + Serialization
     implementation(libs.ktor.client.okhttp)
     implementation(libs.ktor.client.negotiation)
