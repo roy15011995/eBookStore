@@ -1,11 +1,16 @@
 package com.aroy.ebookstore.core.components
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import coil.compose.rememberImagePainter
+import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import coil.size.Scale
 
 /**
  * Created by Amit Roy on Date : 28/11/25
@@ -14,9 +19,8 @@ import coil.request.ImageRequest
 fun ImageView(
     imageUrl: String,
     title: String,
-    height: Int,
-    width: Int,
-    drawableImage: Int
+    drawableImage: Int,
+    modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
     val imageRequest = ImageRequest.Builder(context)
@@ -27,13 +31,15 @@ fun ImageView(
         .fallback(drawableImage)
         .diskCachePolicy(CachePolicy.ENABLED)
         .memoryCachePolicy(CachePolicy.ENABLED)
-        .size(width, height)
+        .size(80, 110)
         .build()
 
-    Image(
-        painter = rememberImagePainter(
-            request = imageRequest
-        ),
-        contentDescription = title
+    AsyncImage(
+        modifier = modifier
+            .height(110.dp)
+            .width(80.dp),
+        model = imageRequest,
+        contentDescription = title,
+        contentScale = ContentScale.Crop,
     )
 }

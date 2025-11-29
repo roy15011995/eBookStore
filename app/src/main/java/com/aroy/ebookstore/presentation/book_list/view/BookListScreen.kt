@@ -19,7 +19,7 @@ import androidx.compose.material.icons.filled.Android
 import androidx.compose.material.icons.filled.Aod
 import androidx.compose.material.icons.filled.Api
 import androidx.compose.material.icons.filled.Code
-import androidx.compose.material.icons.filled.HeartBroken
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
@@ -57,6 +57,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.aroy.ebookstore.core.components.ClickType
 import com.aroy.ebookstore.core.components.CustomTopAppBar
+import com.aroy.ebookstore.core.components.ScreenType
 import com.aroy.ebookstore.core.navigation.Screen
 import com.aroy.ebookstore.presentation.book_list.component.BookItem
 import com.aroy.ebookstore.presentation.book_list.viewModel.BookListEvent
@@ -85,12 +86,12 @@ fun BookListScreen(
         "Android" to Icons.Default.Android,
         "SwiftUI" to Icons.Default.Adb,
         "iOS" to Icons.Default.AcUnit,
-        "Favorite" to Icons.Default.HeartBroken
+        "Favorite" to Icons.Default.Favorite
     )
     val bottomBarItems = listOf(
         "Home" to Icons.Default.Home,
         "Settings" to Icons.Default.Settings,
-        "Favorites" to Icons.Default.HeartBroken,
+        "Favorites" to Icons.Default.Favorite,
         "About" to Icons.Default.Info,
         "Profile" to Icons.Default.Person,
     )
@@ -220,6 +221,7 @@ fun BookListScreen(
                 CustomTopAppBar(
                     navController = navController,
                     text = "Book List",
+                    screenType = ScreenType.HOME,
                     action = { clickType ->
                         when (clickType) {
                             ClickType.BACK -> {
@@ -265,7 +267,7 @@ fun BookListScreen(
             },
             floatingActionButton = {
                 FloatingActionButton(
-                    modifier = Modifier.padding(8.dp),
+                    modifier = Modifier.padding(4.dp),
                     onClick = {
                         viewModel.processIntent(BookListIntent.OpenFavoriteBooks)
                     },
@@ -275,7 +277,7 @@ fun BookListScreen(
                     shape = CircleShape
                 ) {
                     Icon(
-                        imageVector = Icons.Default.HeartBroken,
+                        imageVector = Icons.Default.Favorite,
                         contentDescription = "Favorite"
                     )
                 }

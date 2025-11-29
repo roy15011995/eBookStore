@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
@@ -15,7 +16,7 @@ import androidx.compose.ui.graphics.Color
 fun RatingBar(
     maxRating: Int = 5,
     currentRating: Int,
-    starsColor: Color = Color.Magenta
+    starsColor: Color = MaterialTheme.colorScheme.secondary
 ) {
     Row {
         for (i in 1..maxRating) {
@@ -24,7 +25,7 @@ fun RatingBar(
                 else Icons.Outlined.Star,
                 contentDescription = null,
                 tint = if (i <= currentRating) starsColor
-                else Color.Unspecified
+                else MaterialTheme.colorScheme.onSurface
             )
         }
     }
