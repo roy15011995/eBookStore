@@ -18,9 +18,12 @@ class BookListViewModel @Inject constructor(
 
     override suspend fun handleIntent(intent: BookListIntent) {
         when (intent) {
-            is BookListIntent.LoadBooks -> loadBooks("Kotlin")
+            is BookListIntent.LoadBooks -> loadBooks(intent.query, intent.author)
             is BookListIntent.SelectBook -> {
                 sendEvent(BookListEvent.NavigateToDetails(intent.bookId))
+            }
+            is BookListIntent.OpenFavoriteBooks -> {
+                sendEvent(BookListEvent.NavigateToFavorite)
             }
         }
     }

@@ -2,6 +2,7 @@ package com.aroy.ebookstore.core.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBackIosNew
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,18 +23,19 @@ import androidx.navigation.NavController
 @Composable
 fun CustomTopAppBar(
     navController: NavController,
-    text: String
+    text: String,
+    action: (ClickType) -> Unit
 ){
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.secondary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary,
         ),
         navigationIcon = {
             if (navController.previousBackStackEntry != null) {
                 run {
                     IconButton(
-                        onClick = { navController.navigateUp() }) {
+                        onClick = { action.invoke(ClickType.BACK) }) {
                         Icon(
                             imageVector = Icons.Default.ArrowBackIosNew,
                             contentDescription = "Back",
@@ -42,7 +44,14 @@ fun CustomTopAppBar(
                     }
                 }
             } else {
-                null
+                IconButton(
+                    onClick = { action.invoke(ClickType.DRAWER) }) {
+                    Icon(
+                        imageVector = Icons.Default.Menu,
+                        contentDescription = "Hamburger Menu",
+                        tint = Color.White
+                    )
+                }
             }
         },
         title = {
@@ -53,4 +62,8 @@ fun CustomTopAppBar(
             )
         }
     )
+}
+enum class ClickType{
+    BACK,
+    DRAWER
 }
