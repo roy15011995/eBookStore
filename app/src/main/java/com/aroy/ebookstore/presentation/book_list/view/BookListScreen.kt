@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -50,16 +51,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.aroy.ebookstore.core.components.ClickType
 import com.aroy.ebookstore.core.components.CustomTopAppBar
+import com.aroy.ebookstore.core.navigation.Screen
 import com.aroy.ebookstore.presentation.book_list.component.BookItem
 import com.aroy.ebookstore.presentation.book_list.viewModel.BookListEvent
 import com.aroy.ebookstore.presentation.book_list.viewModel.BookListIntent
 import com.aroy.ebookstore.presentation.book_list.viewModel.BookListViewModel
-import com.example.composebookstoreapplication.core.navigation.Screen
 import kotlinx.coroutines.launch
 
 /**
@@ -134,7 +136,10 @@ fun BookListScreen(
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            ModalDrawerSheet {
+            ModalDrawerSheet(
+                modifier = Modifier.width(300.dp),
+                drawerShape = RectangleShape
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()

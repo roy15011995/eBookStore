@@ -1,4 +1,4 @@
-package com.example.composebookstoreapplication.core.navigation
+package com.aroy.ebookstore.core.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel

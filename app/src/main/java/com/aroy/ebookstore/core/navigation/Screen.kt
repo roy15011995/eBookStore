@@ -1,4 +1,4 @@
-package com.example.composebookstoreapplication.core.navigation
+package com.aroy.ebookstore.core.navigation
 
 /**
  * Created by amitroy on Date : 18/11/23
